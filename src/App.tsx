@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import GlobalStyle from "./styles/Global";
+import Input from "./components/Input/Input";
+import { FormBox } from "./App.styled";
+import { searchRecipesApi } from "./api/food";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = (): React.JSX.Element => {
+  const handleSearch = (): void => {
+    searchRecipesApi({ query: "pasta" }).then((data) => console.log(data));
+  };
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <GlobalStyle />
+      <FormBox>
+        <form action="">
+          <Input label="Search for the ingredient" />
+          {/* <button onClick={handleSearch}>SEARCH FOR FOOOOOOD</button> */}
+        </form>
+      </FormBox>
+    </div>
+  );
+};
 
-export default App
+export default App;
