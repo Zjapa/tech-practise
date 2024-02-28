@@ -1,11 +1,13 @@
 import GlobalStyle from "./styles/Global";
 import Input from "./components/Input/Input";
 import { FormBox } from "./App.styled";
-import { searchRecipesApi } from "./api/food";
+import getRecpies from "./api/food";
 
 const App = (): React.JSX.Element => {
   const handleSearch = (): void => {
-    searchRecipesApi({ query: "pasta" }).then((data) => console.log(data));
+    getRecpies("findByIngredients", {}, { ingredients: "pasta" })
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error.message));
   };
   return (
     <div>
@@ -13,8 +15,9 @@ const App = (): React.JSX.Element => {
       <FormBox>
         <form action="">
           <Input label="Search for the ingredient" />
-          {/* <button onClick={handleSearch}>SEARCH FOR FOOOOOOD</button> */}
+          {/* TODO: create dropdown for food list  */}
         </form>
+        <button onClick={handleSearch}>CLICKE</button>
       </FormBox>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { ComponentPropsWithoutRef } from "react";
+import { StyledInput } from "./Input.styled";
 
 interface inputProps extends ComponentPropsWithoutRef<"input"> {
   label: string;
@@ -9,7 +10,7 @@ const Input = (props: inputProps): React.JSX.Element => {
   return (
     <label>
       {label}
-      <input {...restProps} />
+      <StyledInput {...restProps} />
     </label>
   );
 };

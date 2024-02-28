@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
         box-sizing:border-box;
     }
     body{
-        background-color: ${({ theme }) => theme.colors.background};
+        background-color: ${({ theme }) => theme.colors.subText};
         font-family: Roboto-Regular;
         display:flex;
         align-items:center;
