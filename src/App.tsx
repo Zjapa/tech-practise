@@ -16,8 +16,8 @@ const App = (): React.JSX.Element => {
         <form action="">
           <Input label="Search for the ingredient" />
           {/* TODO: create dropdown for food list  */}
+          <button onClick={handleSearch}>CLICKE</button>
         </form>
-        <button onClick={handleSearch}>CLICKE</button>
       </FormBox>
     </div>
   );
